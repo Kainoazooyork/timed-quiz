@@ -12,8 +12,8 @@
 
             <!--Top section-->
             <div class="top-bar">
-                <button>High Scores</button>
-                <p>Timer: 00:00</p>
+                <button id ='highscore'>High Scores</button>
+                <p id = 'timer'>Timer: 00:00</p>
             </div>
 
             <!--Inner div-->
@@ -22,19 +22,19 @@
                 <header class="quiz-intro">
                     <h1>Prepare to test you knowledge</h1>
                     <h2>This is a timed quiz, each incorrect answer will deduct 5 seconds...Good Luck!</h2>
-                    <button>Begin Quiz</button>
+                    <button id ='beginQuiz'>Begin Quiz</button>
 
                 </header>
 
                 <!--Main content-->
                 <main>
-                    <section class="question screen" >
-                        <h2>Question Here</h2>
+                    <section class="question-screen" >
+                        <h2 id = 'questionText'>Question Here</h2>
                         <ul>
-                            <li><button>Answer 1</button></li>
-                            <li><button>Answer 1</button></li>
-                            <li><button>Answer 1</button></li>
-                            <li><button>Answer 1</button></li>
+                            <li><button id = 'answerButtonOne'>Answer 1</button></li>
+                            <li><button id = 'answerButtonTwo'>Answer 1</button></li>
+                            <li><button id = 'answerButtonThree'>Answer 1</button></li>
+                            <li><button id ='answerButtonFour'>Answer 1</button></li>
                         </ul>
                     </section>
 
@@ -45,7 +45,7 @@
             </div>
         </div>    
         
-
+<script src="./assets/script.js"></script>
     </body>
 
 </html>
