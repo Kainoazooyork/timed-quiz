@@ -44,7 +44,7 @@ var qI = -1
 var secondsLeft = 30
 startButton.addEventListener('click', function(){
     nextQuestion()
-    timer()
+    timer() 
     quizIntro.style='display:none'
     answerButtonOne.addEventListener('click', nextQuestion)
     answerButtonTwo.addEventListener('click', nextQuestion)
@@ -52,19 +52,45 @@ startButton.addEventListener('click', function(){
     answerButtonFour.addEventListener('click', nextQuestion)
 }) 
 function nextQuestion(){
+    if (qI > -1) {
+        console.log(this.textContent)
+        console.log(questions[qI].correctAnswer)
+    }
+    if (qI > -1 && this.textContent != questions[qI].correctAnswer) {
+        console.log("test")
+        secondsLeft -= 5
+    }
 qI ++
+if (qI > questions.length) {
+    endQuiz()
+}
+else {
 questionText.textContent = questions[qI].question
 answerButtonOne.textContent = questions[qI].answer1
 answerButtonTwo.textContent = questions[qI].answer2
 answerButtonThree.textContent = questions[qI].answer3
 answerButtonFour.textContent = questions[qI].answer4
 }
+}
 function timer(){
     setInterval(function(){
         secondsLeft--
         timerEl.textContent = 'Timer: ' + secondsLeft
-        if (secondsLeft <= 0){
-            clearInterval(timer)
+        if (secondsLeft <= 0) {
+            timerEl.textContent = 'Timer: ' + 0
+         endQuiz()
         }
     },1000)
+}
+
+function endQuiz() {
+    var initials = prompt('enter your initials')
+    var score = secondsLeft 
+    localStorage.setItem('userScore', initials + ': ' + score)
+    var li =document.createElement('li')
+    li.textContent = localStorage.getItem('userScore')
+    timerEl.style = 'display: none'
+    questionScreen.style = 'display: none'
+
+
 }
